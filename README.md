@@ -220,13 +220,27 @@ Abre una terminal y situate en donde prefieras clonar el repositorio.
 ```bash
 git clone https://github.com/TheCris98/gestion-clientes-perseo.git
 ```
+___Nota:___ _No olvides generar los archivos de enviroments para definir la ```apiUrl``` y la ```apiKey```, que por obvios motivos de seguridad no se encuentran en este repositorio 😊._
+
+Para eso, accede a la carpeta ``` /src ``` del proyecto y crea una nueva carpeta llamada ``` /environments ```, y en ella crea dos archivos, uno llamado ``` environment.prod.ts ``` y otro ``` environment.ts ```. _(Si, uno es para variables de desarrollo y otro para producción.)_
+
+El contenido de ambos archivos debería verse así:
+
+___environment.ts___
+```ts
+export const environment = {
+  production: false,
+  apiUrl: 'https://perseo-data-c1.app/api',
+  apiKey: 'REEMPLAZA_EL_TOKEN_AQUÍ'
+};
+```
+Con la diferencia de que ``` production: true o false ``` varía dependiendo de que archivo de environments se trate.
 
 #### Comando para instalar dependencias
 ```bash
 cd gestion-clientes
 npm install
 ```
-___Nota:___ _No olvides generar los archivos de enviroments para definir la ```apiUrl``` y la ```apiKey```, que por obvios motivos de seguridad no se encuentran en este repositorio 😊._
 
 Una vez instaladas las dependencias, puedes ejecutar el proyecto en la web, o revisar la plataforma de Android
 
