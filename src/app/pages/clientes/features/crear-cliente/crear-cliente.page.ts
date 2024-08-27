@@ -30,9 +30,9 @@ export class CrearClientePage implements OnInit {
       telefono1: [''],
       telefono2: [''],
       telefono3: [''],
-      provinciasid: ['', Validators.required],
-      ciudadesid: ['', Validators.required],
-      parroquiasid: ['', Validators.required],
+      provinciasid: ['23'],
+      ciudadesid: ['2301'],
+      parroquiasid: ['230101'],
       tipoidentificacion: ['C', Validators.required],
       estado: [true, Validators.required]
     });
