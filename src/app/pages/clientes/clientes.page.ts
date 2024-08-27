@@ -11,7 +11,8 @@ import { Cliente } from 'src/app/models/models';
 export class ClientesPage implements OnInit {
   // Lista de clientes a mostrar en la vista
   clientes: Cliente[] = [];
-
+  hide: boolean = false;
+  results: Cliente[] = [];
   constructor(
     private clientesService: ClientesService, // Servicio para obtener los clientes
     private router: Router, // Router para navegación
@@ -28,11 +29,16 @@ export class ClientesPage implements OnInit {
     });
   }
 
+  hideSearchBar() {
+    this.hide = !this.hide
+  }
+
   // Método para obtener la lista de clientes desde el servicio
   getClientes() {
     this.clientesService.getClientes().subscribe({
       next: (data) => {
         this.clientes = data.clientes; // Asignar los clientes obtenidos al array local
+        this.results = [...this.clientes]
         console.log(this.clientes); // Imprimir los clientes en la consola
         console.log('Hubo éxito en la respuesta');
       },
@@ -42,8 +48,15 @@ export class ClientesPage implements OnInit {
     });
   }
 
+  search(event : any) {
+    const query = event.target.value.toUpperCase();
+    this.results = this.clientes.filter((cliente) => cliente.clientescodigo?.includes(query));
+  }
+
   // Método para navegar a la página de edición de cliente
   editarCliente(cliente: Cliente) {
     this.router.navigate(['/clientes/editar-cliente'], { state: { cliente } });
   }
+
+
 }

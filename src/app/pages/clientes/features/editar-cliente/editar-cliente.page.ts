@@ -45,16 +45,25 @@ export class EditarClientePage implements OnInit {
   guardarCambios() {
     this.clienteService.editarCliente(this.cliente).subscribe({
       next: (data) => {
-        console.log(data);
-        this.presentToast('Cliente editado exitosamente', 1500, 'success', 'checkmark-done-outline');
-        this.router.navigate(['clientes'], { queryParams: { update: true } });
+        if (data) {
+          // Solo maneja el éxito si `data` no es null
+          console.log('Cliente editado con éxito:', data);
+          this.presentToast('Cliente editado exitosamente', 1500, 'success', 'checkmark-done-outline');
+          this.router.navigate(['clientes'], { queryParams: { update: true } });
+        } else {
+          // Maneja el caso en que `data` es null o vacío
+          console.error('La respuesta fue nula o inválida');
+          this.presentToast('No se pudieron guardar los cambios', 1500, 'danger', 'close-outline');
+        }
       },
       error: (error) => {
-        console.error('Problema al editar el usuario: ', error);
+        // Maneja el error y muestra un mensaje apropiado
+        console.error('Problema al editar el cliente:', error);
         this.presentToast('Error inesperado', 1500, 'danger', 'close-outline');
       }
     });
   }
+
 
   // Método para eliminar el cliente
   async eliminarCliente() {
@@ -68,7 +77,7 @@ export class EditarClientePage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
-            // Redirige a otra ruta si el usuario cancela
+            // Redirige a la página de clientes si el usuario cancela
             this.router.navigate(['clientes']);
           }
         },
@@ -78,12 +87,20 @@ export class EditarClientePage implements OnInit {
             // Procede con la eliminación del cliente si el usuario confirma
             this.clienteService.eliminarCliente(this.cliente.clientesid).subscribe({
               next: (data) => {
-                console.log('Cliente eliminado', data);
-                this.presentToast('Cliente eliminado exitosamente', 1500, 'success', 'trash-bin-outline');
-                this.router.navigate(['clientes'], { queryParams: { update: true } });
+                if (data) {
+                  // Solo maneja el éxito si `data` no es null
+                  console.log('Cliente eliminado con éxito:', data);
+                  this.presentToast('Cliente eliminado exitosamente', 1500, 'success', 'trash-bin-outline');
+                  this.router.navigate(['clientes'], { queryParams: { update: true } });
+                } else {
+                  // Maneja el caso en que `data` es null o vacío
+                  console.error('La respuesta fue nula o inválida');
+                  this.presentToast('No se pudo eliminar el cliente', 1500, 'danger', 'close-outline');
+                }
               },
               error: (error) => {
-                console.error('Error al eliminar el cliente: ', error);
+                // Maneja el error y muestra un mensaje apropiado
+                console.error('Error al eliminar el cliente:', error);
                 this.presentToast('Error inesperado', 1500, 'danger', 'close-outline');
               }
             });
@@ -94,4 +111,5 @@ export class EditarClientePage implements OnInit {
 
     await alert.present();
   }
+
 }

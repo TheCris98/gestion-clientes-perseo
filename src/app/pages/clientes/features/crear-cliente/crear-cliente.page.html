@@ -10,66 +10,57 @@
 <ion-content padding>
   <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
     <!-- Campos de entrada para los datos del cliente -->
-    <ion-item>
-      <ion-input label="Razón Social *" labelPlacement="floating" formControlName="razonsocial" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Nombre Comercial" labelPlacement="floating" formControlName="nombrecomercial"
-        type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Dirección" labelPlacement="floating" formControlName="direccion" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Identificación *" labelPlacement="floating" formControlName="identificacion"
-        type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Email *" labelPlacement="floating" formControlName="email" type="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Teléfono 1" labelPlacement="floating" formControlName="telefono1" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Teléfono 2" labelPlacement="floating" formControlName="telefono2" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Teléfono 3" labelPlacement="floating" formControlName="telefono3" type="text"></ion-input>
-    </ion-item>
+    <ion-input class="input-spacing" label="Razón Social *" labelPlacement="floating" formControlName="razonsocial"
+      type="text" fill="outline"></ion-input>
+
+    <ion-input class="input-spacing" label="Nombre Comercial" labelPlacement="floating"
+      formControlName="nombrecomercial" type="text" fill="outline"></ion-input>
+
+    <ion-input class="input-spacing" label="Dirección" labelPlacement="floating" formControlName="direccion" type="text"
+      fill="outline"></ion-input>
+
+    <ion-input class="input-spacing" label="Identificación *" labelPlacement="floating" formControlName="identificacion"
+      type="text" fill="outline"></ion-input>
+
+    <ion-input class="input-spacing" label="Email *" labelPlacement="floating" formControlName="email" type="email"
+      fill="outline"></ion-input>
+
+    <ion-input class="input-spacing" label="Teléfono 1" labelPlacement="floating" formControlName="telefono1"
+      type="text" fill="outline"></ion-input>
+
+    <ion-input class="input-spacing" label="Teléfono 2" labelPlacement="floating" formControlName="telefono2"
+      type="text" fill="outline"></ion-input>
+
+    <ion-input class="input-spacing" label="Teléfono 3" labelPlacement="floating" formControlName="telefono3"
+      type="text" fill="outline"></ion-input>
 
     <!-- Campos para ubicación -->
-    <ion-item>
-      <ion-input label="Provincia *" labelPlacement="floating" formControlName="provinciasid" type="text"></ion-input>
-    </ion-item>
+    <ion-input class="input-spacing" label="Provincia *" labelPlacement="floating" formControlName="provinciasid"
+      type="text" fill="outline"></ion-input>
 
-    <ion-item>
-      <ion-input label="Ciudad *" labelPlacement="floating" formControlName="ciudadesid" type="text"></ion-input>
-    </ion-item>
+    <ion-input class="input-spacing" label="Ciudad *" labelPlacement="floating" formControlName="ciudadesid" type="text"
+      fill="outline"></ion-input>
 
-    <ion-item>
-      <ion-input label="Parroquia *" labelPlacement="floating" formControlName="parroquiasid" type="text"></ion-input>
-    </ion-item>
+    <ion-input class="input-spacing" label="Parroquia *" labelPlacement="floating" formControlName="parroquiasid"
+      type="text" fill="outline"></ion-input>
 
     <!-- Select para tipo de identificación -->
-    <ion-item>
-      <ion-select label="Tipo de Identificación" labelPlacement="floating" formControlName="tipoidentificacion">
-        <ion-select-option value="C">Cédula</ion-select-option>
-        <ion-select-option value="R">RUC</ion-select-option>
-        <ion-select-option value="P">Pasaporte</ion-select-option>
-        <ion-select-option value="F">Consumidor Final</ion-select-option>
-      </ion-select>
-    </ion-item>
+    <ion-select class="input-spacing" label="Tipo de Identificación" labelPlacement="floating"
+      formControlName="tipoidentificacion" fill="outline">
+      <ion-select-option value="C">Cédula</ion-select-option>
+      <ion-select-option value="R">RUC</ion-select-option>
+      <ion-select-option value="P">Pasaporte</ion-select-option>
+      <ion-select-option value="F">Consumidor Final</ion-select-option>
+    </ion-select>
 
     <!-- Select para estado -->
-    <ion-item>
-      <ion-select label="Estado" labelPlacement="floating" formControlName="estado">
-        <ion-select-option value="true">Activo</ion-select-option>
-        <ion-select-option value="false">Inactivo</ion-select-option>
-      </ion-select>
-    </ion-item>
+    <ion-select class="input-spacing" label="Estado" labelPlacement="floating" formControlName="estado" fill="outline">
+      <ion-select-option value="true">Activo</ion-select-option>
+      <ion-select-option value="false">Inactivo</ion-select-option>
+    </ion-select>
 
     <!-- Botón para enviar el formulario -->
-    <ion-button expand="block" type="submit" [disabled]="!clienteForm.valid">
+    <ion-button class="input-spacing" expand="block" type="submit" [disabled]="!clienteForm.valid">
       Crear Cliente
     </ion-button>
   </form>

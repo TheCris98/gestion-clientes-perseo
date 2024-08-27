@@ -5,7 +5,9 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "serve": "ionic serve",
+    "start-chrome": "start chrome --disable-web-security --user-data-dir=\"C:\\chrome_dev\"",
+    "ejecutar": "npm run start-chrome && npm run serve",
     "generate-assets": "npx capacitor-assets generate --android",
     "build": "ng build && npm run generate-assets && npx cap sync android && npx cap open android",
     "watch": "ng build --watch --configuration development",

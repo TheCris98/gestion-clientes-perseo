@@ -41,19 +41,26 @@ export class CrearClientePage implements OnInit {
   // Método para manejar el envío del formulario
   onSubmit() {
     if (this.clienteForm.valid) {
-      this.clienteService.crearCliente(this.clienteForm.value).subscribe(
-        response => {
-          console.log('Cliente creado con éxito:', response);
-          this.presentToast('Cliente agregado exitosamente', 2000, 'success', 'person-add-outline');
-          this.router.navigate(['clientes'], { queryParams: { update: true } });  // Redirige a la página principal de clientes
+      this.clienteService.crearCliente(this.clienteForm.value).subscribe({
+        next: (data) => {
+          if (data) {
+            console.log('Cliente creado con éxito:', data);
+            this.presentToast('Cliente agregado exitosamente', 2000, 'success', 'person-add-outline');
+            this.router.navigate(['clientes'], { queryParams: { update: true } });
+          } else {
+            // Aquí puedes manejar el caso en que `data` es null, si es necesario
+            console.error('La respuesta fue nula o inválida');
+            this.presentToast('Error al agregar el cliente', 1500, 'danger', 'close-outline');
+          }
         },
-        error => {
+        error: (error) => {
           console.error('Error al crear el cliente:', error);
           this.presentToast('Error inesperado', 1500, 'danger', 'close-outline');
         }
-      );
+      });
     }
   }
+
 
   // Método para mostrar un mensaje de toast
   async presentToast(message: string, duration: number, color: string, icon: string) {

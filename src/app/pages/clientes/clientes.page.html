@@ -3,7 +3,7 @@
     <!-- Botones de acción en la parte final del toolbar -->
     <ion-buttons slot="end">
       <!-- Botón de búsqueda -->
-      <ion-button>
+      <ion-button (click)="hideSearchBar()">
         <ion-icon name="search-outline"></ion-icon>
       </ion-button>
       <!-- Botón con menú de opciones -->
@@ -13,6 +13,9 @@
     </ion-buttons>
     <!-- Título del header -->
     <ion-title>Clientes</ion-title>
+  </ion-toolbar>
+  <ion-toolbar class="custom-toolbar" *ngIf="hide">
+    <ion-searchbar animated="true" [debounce]="1000" (ionInput)="search($event)" color="light" placeholder="Buscar por Código de Cliente"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -28,7 +31,7 @@
     <ion-card-content>
       <ion-list>
         <!-- Iterar sobre la lista de clientes -->
-        <ion-item *ngFor="let cliente of clientes; let i = index;">
+        <ion-item *ngFor="let cliente of results; let i = index;">
           <ion-grid>
             <ion-row>
               <!-- Avatar del cliente -->

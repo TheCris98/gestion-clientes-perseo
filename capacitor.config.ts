@@ -3,7 +3,12 @@ import type { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'com.prueba.app',
   appName: 'Gestor Clientes',
-  webDir: 'www'
+  webDir: 'www',
+  plugins: {
+    CapacitorHttp: {
+      enabled: true,
+    },
+  }
 };
 
 export default config;

@@ -7,21 +7,14 @@
 .btn-accept {
     --background: #28a745;
     --color: #fff;
-    --border-radius: 8px;
-    --padding-start: 16px;
-    --padding-end: 16px;
-    --padding-top: 8px;
-    --padding-bottom: 8px;
 }
 
 .btn-delete {
     --background: #dc3545;
     --color: #fff;
-    --border-radius: 8px;
-    --padding: 8px;
 }
 
-#delete ion-icon {
+ion-icon {
     font-size: 24px;
 }
 

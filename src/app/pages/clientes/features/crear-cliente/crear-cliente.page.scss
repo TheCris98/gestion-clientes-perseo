@@ -13,11 +13,23 @@ ion-button {
   font-size: 16px;
   font-weight: bold;
   margin-top: 24px;
-  margin-left: 5%;
-  margin-right: 5%;
 }
 
 ion-button[disabled] {
   --background: #d3d3d3;
   --color: #fff;
+}
+
+/* Añadir separación entre los inputs y el contenedor */
+.input-spacing {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+/* Ajustar el padding del contenedor para evitar desbordamiento */
+ion-content {
+  --padding-start: 16px;
+  /* Ajusta según sea necesario */
+  --padding-end: 16px;
+  /* Ajusta según sea necesario */
 }
