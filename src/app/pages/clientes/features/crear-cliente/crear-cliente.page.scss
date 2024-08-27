@@ -1,0 +1,23 @@
+/* Estilo para el toolbar */
+.custom-toolbar {
+  --background: linear-gradient(135deg, #00BFFF, #1E90FF) !important;
+}
+
+/* Estilo para el botón */
+ion-button {
+  --background: #1E90FF;
+  --color: #fff;
+  --border-radius: 8px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 24px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+ion-button[disabled] {
+  --background: #d3d3d3;
+  --color: #fff;
+}

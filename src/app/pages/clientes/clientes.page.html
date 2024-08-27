@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <!-- Botones de acción en la parte final del toolbar -->
+    <ion-buttons slot="end">
+      <!-- Botón de búsqueda -->
+      <ion-button>
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+      <!-- Botón con menú de opciones -->
+      <ion-button>
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- Título del header -->
+    <ion-title>Clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <!-- Cabecera del card -->
+    <ion-card-header>
+      <ion-card-subtitle>
+        Listado de Clientes
+      </ion-card-subtitle>
+    </ion-card-header>
+    <!-- Contenido del card -->
+    <ion-card-content>
+      <ion-list>
+        <!-- Iterar sobre la lista de clientes -->
+        <ion-item *ngFor="let cliente of clientes; let i = index;">
+          <ion-grid>
+            <ion-row>
+              <!-- Avatar del cliente -->
+              <ion-col size="3" class="ion-align-self-center">
+                <ion-avatar>
+                  <ion-img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-img>
+                </ion-avatar>
+              </ion-col>
+              <!-- Información del cliente -->
+              <ion-col size="8">
+                <h2>{{cliente.razonsocial}}</h2>
+                <h3>{{cliente.nombrecomercial}}</h3>
+                <p>{{cliente.direccion}}</p>
+              </ion-col>
+              <!-- Botón de opciones del cliente -->
+              <ion-col size="1" class="ion-align-self-center ion-text-right">
+                <ion-button (click)="editarCliente(cliente)" fill="clear" color="primary" class="ellipsis-button">
+                  <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón flotante para crear un nuevo cliente -->
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" [routerLink]="['crear-cliente']">
+    <ion-fab-button color="primary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,90 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="toolbar-gradient">
+    <!-- Botón de retroceso -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <!-- Botones para guardar y eliminar -->
+    <ion-buttons slot="end">
+      <!-- Botón de aceptar -->
+      <ion-button (click)="guardarCambios()" class="btn-accept">
+        ACEPTAR
+      </ion-button>
+      <!-- Botón de eliminar -->
+      <ion-button id="delete" (click)="eliminarCliente()" class="btn-delete">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- Título del header -->
+    <ion-title>Editar Cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-container">
+  <ion-grid>
+    <!-- Fila para el código del cliente -->
+    <ion-row>
+      <ion-col>
+        <ion-input label="Código" [(ngModel)]="cliente.clientescodigo" labelPlacement="stacked"></ion-input>
+      </ion-col>
+    </ion-row>
+    <!-- Fila para mostrar el código del cliente -->
+    <ion-row>
+      <ion-col>
+        <p class="client-code">{{cliente.clientescodigo}}</p>
+      </ion-col>
+    </ion-row>
+    <!-- Acordeón para datos comerciales -->
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header" color="light">
+          <ion-label>Datos Comerciales</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <!-- Campos de entrada para los datos comerciales -->
+          <ion-row>
+            <ion-col>
+              <ion-input label="Tipo:" [(ngModel)]="cliente.tipoidentificacion" labelPlacement="stacked"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input label="Identificación:" [(ngModel)]="cliente.identificacion"
+                labelPlacement="stacked"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input label="Razón Social:" [(ngModel)]="cliente.razonsocial" labelPlacement="stacked"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input label="Nombre Comercial:" [(ngModel)]="cliente.nombrecomercial"
+                labelPlacement="stacked"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input label="Dirección" [(ngModel)]="cliente.direccion" labelPlacement="stacked"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input label="Convencional" [(ngModel)]="cliente.telefono3" labelPlacement="floating"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input label="Celular" [(ngModel)]="cliente.telefono2" labelPlacement="floating"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input label="Whatsapp" [(ngModel)]="cliente.telefono1" labelPlacement="floating"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input label="Email" [(ngModel)]="cliente.email" labelPlacement="floating"></ion-input>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-grid>
+</ion-content>

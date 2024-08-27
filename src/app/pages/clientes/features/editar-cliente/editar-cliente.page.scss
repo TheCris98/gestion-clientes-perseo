@@ -1,0 +1,46 @@
+/* Gradiente en el toolbar */
+.toolbar-gradient {
+    --background: linear-gradient(135deg, #00BFFF, #1E90FF) !important;
+}
+
+/* Estilo para los botones del toolbar */
+.btn-accept {
+    --background: #28a745;
+    --color: #fff;
+    --border-radius: 8px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+}
+
+.btn-delete {
+    --background: #dc3545;
+    --color: #fff;
+    --border-radius: 8px;
+    --padding: 8px;
+}
+
+#delete ion-icon {
+    font-size: 24px;
+}
+
+/* Estilo para el contenido */
+.content-container {
+    padding: 16px;
+}
+
+/* Estilo para los inputs */
+ion-input {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --border-radius: 8px;
+    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el párrafo con el código del cliente */
+.client-code {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 0;
+}
