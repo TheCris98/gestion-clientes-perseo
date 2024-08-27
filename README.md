@@ -1,35 +1,42 @@
-Gestor Clientes Perseo
+# Gestor Clientes Perseo
 
-# Este proyecto es una prueba para testear el consumo de una API del servidor de pruebas de Perseo Software, está construido en Ionic/Angular versión 7.2.0, con un enfoque de desarrollo cross-platform.
+Este proyecto es una prueba para testear el consumo de una API del servidor de pruebas de __Perseo Software__, está construido en Ionic/Angular versión 7.2.0, con un enfoque de desarrollo cross-platform.
 
-## Tabla de Contenidos
+### Tabla de Contenidos
 
 1. Descripción
 2. Instalación
 3. Contacto
 
 
-### Descripción
+## Descripción
 El objetivo de este proyecto es evaluar las habilidades del postulante, mediante la elaboración de una solución sencilla para la gestión de clientes de Perseo, dónde se accede a una API provista por la empresa, misma que cuenta con distintos endpoints para cada función de gestión, explicadas a continuación:
 
+__Datos de la API__
+```typescript
 API_URL: https://perseo-data-c1.app
 API_KEY: 'MI_API_KEY'
+```
 
-Headers: {
+__Headers__
+```typescript
+{
     'Content-Type': 'application/json',
     'Authorization': Bearer API_KEY
-  };
+};
+```
 
-Crear Cliente
-Endpoint : clientes_crear
+### Crear Cliente
+#### Endpoint : clientes_crear
 
 Procedimiento utilizado para el registro de los clientes en el sistema contable Perseo.
 
-Nota: Si el cliente ya existe, devuelve el id y código del cliente con que se encuentra registrado en el sistema.
+___Nota:___ _Si el cliente ya existe, devuelve el id y código del cliente con que se encuentra registrado en el sistema._
 
-Ejemplo: API_URL/api/clientes_crear
+__Ejemplo:__ API_URL/api/clientes_crear
 
-Body: 
+___Body:___ 
+```json
 {
     "api_key": API_KEY,
 	"registros":
@@ -72,10 +79,12 @@ Body:
 		}
 	]
 }
+```
 
 Esto retornará un response de éxito con los datos del nuevo cliente
 
-Response:
+___Response:___
+```json
 {
   "clientes": [
     {
@@ -85,9 +94,10 @@ Response:
     }
   ]
 }
+```
 
-Consultar Clientes
-Endpoint : clientes_consulta
+### Consultar Clientes
+#### Endpoint : clientes_consulta
 
 Devuelve todos los clientes almacenados en el sistema central y que su estado sea activo, de acuerdo con el parámetro que se haya enviado.
 Tomar en cuenta que al realizar una búsqueda personalizada, se debe enviar solo 1 de los 4 parámetros solicitados; es decir, que realiza la busque por:
@@ -97,23 +107,26 @@ Tomar en cuenta que al realizar una búsqueda personalizada, se debe enviar solo
 - Código del cliente
 - Identificación
 
-Ejemplo: API_URL/api/clientes_consulta
+__Ejemplo:__ API_URL/api/clientes_consulta
 
-Body:
+___Body:___
+```json
 {
     "api_key": API_KEY
 }
+```
 
 Esto retornará todos los clientes registrados.
 
-Editar Cliente
-Endpoint : clientes_editar
+### Editar Cliente
+#### Endpoint : clientes_editar
 
 Procedimiento utilizado para actualizar los datos de los clientes ya existentes.
 
-Ejemplo: API_URL/api/clientes_editar
+__Ejemplo:__ API_URL/api/clientes_editar
 
-Body:
+___Body:___
+```json
 {
     "api_key": API_KEY,
 	"registros":
@@ -155,10 +168,11 @@ Body:
 		}
 	]
 }
-
+```
 Esto retornará un response de éxito con los ids del cliente editado
 
-Response:
+___Response:___
+```json
 {
   "clientes": [
     {
@@ -167,29 +181,34 @@ Response:
     }
   ]
 }
+```
 
-Eliminar Cliente
-Endpoint : clientes_eliminar
+### Eliminar Cliente
+#### Endpoint : clientes_eliminar
 
 Procedimiento utilizado para realizar la eliminación de un cliente, de acuerdo al id que envía.
 Nota: Antes de realizar el proceso de eliminación, se verifique que el cliente no tenga documentos asociados, si es así enviar un mensaje de error en formato JSON, caso contrario retorna un texto fijo con el siguiente enunciado: Registro eliminado correctamente en el sistema.
 
-Ejemplo: API_URL/api/clientes_eliminar
+__Ejemplo:__ API_URL/api/clientes_eliminar
 
-Body:
+___Body:___
+```json
 {
     "api_key": API_KEY,
     "clientesid":3
 }
+```
 
 Esto retornará un mensaje de éxito
 
+```
 Registro eliminado correctamente en el sistema
+```
 
-Para más información revisa https://documenter.getpostman.com/view/11467225/U16dQoKs#intro
+Para más información revisa la [documentación oficial.](https://documenter.getpostman.com/view/11467225/U16dQoKs#intro)
 
-Instalación
-Herramientas necesarias:
+### Instalación
+#### Herramientas necesarias:
 
 - Editor de Código (VS Code)
 - Nodejs (v20.17.0)
@@ -197,35 +216,44 @@ Herramientas necesarias:
 
 Desde tu editor preferido:
 Abre una terminal y situate en donde prefieras clonar el repositorio.
-# Comando para clonar el repositorio
+#### Comando para clonar el repositorio
+```bash
 git clone https://github.com/TheCris98/gestion-clientes-perseo.git
+```
 
-# Comando para instalar dependencias
+#### Comando para instalar dependencias
+```bash
 cd gestion-clientes
 npm install
+```
+___Nota:___ _No olvides generar los archivos de enviroments para definir la ```apiUrl``` y la ```apiKey```, que por obvios motivos de seguridad no se encuentran en este repositorio 😊._
 
 Una vez instaladas las dependencias, puedes ejecutar el proyecto en la web, o revisar la plataforma de Android
 
-Para la web:
+### Para la web:
 
 Nota: Asegúrate de tener cualquier instancia de Google Chrome cerrada
 
-# Comando para ejecutar en la web
+#### Comando para ejecutar en la web
+```bash
 npm run ejecutar
-
+```
 Esto ejecutará el proyecto de manera local y abrirá Google Chrome sin protocolos de seguridad, ya que por cuestiones de configuración en el servidor, los CORS no permiten hacen peticiones a la API, por lo cual una vez abierta esta instancia de Chrome, abre el proyecto en una nueva pestaña, en http://localhost:8100/clientes.
 
-Para móvil:
+### Para móvil:
 
-# Comando para compilar y abrir el proyecto móvil
+#### Comando para compilar y abrir el proyecto móvil
+```bash
 npm run build
+```
+Este comando ejecuta una serie de subtareas necesarias para dejar la plataforma de android lista, además de abrir Android Studio para visualizar todo el código en Kotlin.
 
-Este comando ejecuta una serie de subtareas necesarias para dejar la plataforma de android lista, además de abrir Android Studio para visualizar todo le código en Kotlin.
+O también puedes descargar e instalar la __APK__ en tu dispositivo ___Android___ que se encuentra en este mismo repositorio.
 
-Contacto
+### Contacto
 Este proyecto fue realizado por Cristian López, como parte de una prueba técnica para Perseo Software, en supervisión del Ing. Jaime.
 
-Correo: crisjlopez1998@gmail.com
+__Correo:__ crisjlopez1998@gmail.com
 
 
 

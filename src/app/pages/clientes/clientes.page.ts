@@ -50,7 +50,7 @@ export class ClientesPage implements OnInit {
 
   search(event : any) {
     const query = event.target.value.toUpperCase();
-    this.results = this.clientes.filter((cliente) => cliente.clientescodigo?.includes(query));
+    this.results = this.clientes.filter((cliente) => cliente.identificacion?.includes(query));
   }
 
   // Método para navegar a la página de edición de cliente
